@@ -17,7 +17,7 @@ import vtriangle from "./vtriangle.vue"
 export default {
   data () {
     return {
-    	depth:2,
+    	depth:1,
     	size: 400,
     	topX: 0,
     	topY: 0,
@@ -47,9 +47,9 @@ export default {
 		generate(stack, x, y, size, depth, next){
 			let result = [];
 			if(depth > 1) {
-				stack.push(...this.generate([], (x+(size/4)), 	(y+(size/2)), 		size/2, depth-1))
-				stack.push(...this.generate([], x, 						(y + (size/2)), 	size/2, depth-1))
-				stack.push(...this.generate([], (x+(size/2)), 	(y+(size/2)), 		size/2, depth-1))
+				stack.push(...this.generate([], (x + (size/4)), 	y, 								size/2, depth-1))
+				stack.push(...this.generate([], x, 							(y + (size/2)), 	size/2, depth-1))
+				stack.push(...this.generate([], (x + (size/2)), (y + (size/2)), 	size/2, depth-1))
 			}
 			stack.push(this.getPoints(x, y, size))
 			return stack;
