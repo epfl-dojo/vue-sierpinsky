@@ -1,14 +1,13 @@
 <template>
-        <polygon :points="points" :style="style" ></polygon>
+	<polygon :points="pointstring" :style="style" ></polygon>
 </template>
 <script>
-    export default{
-        props: ['size', 'pointa', 'pointb', 'pointc', 'style'],
-        computed:{
-            points(){
-                console.log(`${this.pointa} ${this.pointb} ${this.pointc}`);
-                return `${this.pointa} ${this.pointb} ${this.pointc}`;
-            }
-        }
-    }
+	export default{
+		props: ['size', 'points', 'style'],
+		computed:{
+			pointstring(){
+				return `${this.points.pointa} ${this.points.pointb} ${this.points.pointc}`;
+			}
+		}
+	}
 </script>
